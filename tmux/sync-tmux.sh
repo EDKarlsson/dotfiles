@@ -6,8 +6,10 @@ if [[ "$1" = "local" ]]; then
 else
     cp ~/.tmux.conf ~/git/env-config/tmux/tmux.conf
     cd ~/git/env-config/
-    git add tmux/tmux.conf
-    commit_message="Updated tmux.conf on `whoami`@`hostname`"
-    git commit -m "$commit_message"
+    if [[ "$1" = "commit" ]]; then
+        git add tmux/tmux.conf
+        commit_message="Updated tmux.conf on `whoami`@`hostname`"
+        git commit -m "$commit_message"
+    fi
 fi
     

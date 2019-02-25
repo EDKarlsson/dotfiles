@@ -2,15 +2,20 @@
 # Script creates a basic tmux environment in the current directory
 
 set session_name = "$1"
-set current_session = "$TMUX"
+if ( $?TMUX ) then
+   set current_session = "$TMUX"
+   if ( "$current_session" != "") then
+       set current_session = `tmux display-message -p '#S'`
+   endif
+else
+   set attach_to_client = true
+endif
+
 
 if ( "$session_name" == "" ) then
     set session_name = "dev"
 endif
 
-if ( "$current_session" != "") then
-    set current_session = `tmux display-message -p '#S'` 
-endfi
 
 
 set CUR_DIR="$PWD"
@@ -42,8 +47,13 @@ tmux set-window-option -t $session_name synchronize-panes off
 #echo "Start top in pane 1.3"
 tmux send-keys -t "$session_name":1.3 "top" C-m
 
-#echo "Switch Clients"
-tmux switch-client -t "$session_name"
+if ( $?attach_to_client ) then
+   #echo "Attaching to $session_name"
+   tmux at -t "$session_name"
+else
+    #echo "Switch Clients to $session_name"
+    tmux switch-client -t "$session_name"
+endif
 
 if ( "$session_name" == test) then
     sleep 5

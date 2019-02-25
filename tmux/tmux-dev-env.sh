@@ -1,24 +1,52 @@
-#!/bin/zsh
+#!/bin/csh
+# Script creates a basic tmux environment in the current directory
 
-if [[ "$1" = "test" ]]; then
-        SESSION_NAME="test"
-        PROJ_DIR="~/git/shell-env-config"
-else
-    if [[ -z "$2" ]]; then
-        SESSION_NAME="dev"
-        PROJ=$1
-    else
-        SESSION_NAME=$1
-        PROJ=$2
-    fi
-fi
+set session_name = "$1"
+set current_session = "$TMUX"
+
+if ( "$session_name" == "" ) then
+    set session_name = "dev"
+endif
+
+if ( "$current_session" != "") then
+    set current_session = `tmux display-message -p '#S'` 
+endfi
 
 
-tmux new-session -s $SESSION_NAME -n main -d
-tmux send-keys -t $SESSION_NAME "cd $PROJ" C-m
-tmux split-window -v -t $SESSION_NAME
+set CUR_DIR="$PWD"
+#echo "Current Directory: $CUR_DIR"
 
-#if [[ "$1" = "test" ]]; then
-#    tmux ls
-#    tmux kill-session -t test
-#fi
+#echo "Starting TMUX Session:$session_name"
+tmux new-session -s "$session_name" -n main -d
+# Have to sleep or race condition when trying to access ~/.gitignore
+
+#echo "Splitting window 1 => 3 panes"
+# Window 1 Create 3 Panes
+sleep .1
+tmux split-window -h -p 70 -t "$session_name"
+sleep .1
+tmux split-window -h -p 50 -t "$session_name"
+
+# Create a pane for running top
+#echo "Create Process top pane"
+sleep .1
+tmux split-window -v -p 70 -t "$session_name":1.3
+
+#echo "Move all panes into $CUR_DIR"
+# Move all the panes into the same directory
+tmux set-window-option -t "$session_name" synchronize-panes on
+tmux send-keys -t "$session_name" "cd $CUR_DIR; clear" C-m
+tmux set-window-option -t $session_name synchronize-panes off
+
+# Start top in upper right most pane
+#echo "Start top in pane 1.3"
+tmux send-keys -t "$session_name":1.3 "top" C-m
+
+#echo "Switch Clients"
+tmux switch-client -t "$session_name"
+
+if ( "$session_name" == test) then
+    sleep 5
+    tmux switch-client -t "$current_session"
+    tmux kill-session -t "$session_name"
+endif

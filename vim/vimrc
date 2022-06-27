@@ -1,0 +1,82 @@
+set nocompatible      " Disable compatibility with vi which can cause unexpected issues.
+filetype on           " Enable type file detection. Vim will be able to try to detect the type of file in use.
+filetype plugin on    " Enable plugins and load plugin for the detected file type.
+filetype indent on    " Load an indent file for the detected file type.
+
+syntax on             " Turn syntax highlighting on.
+" Not a fan of this right now
+" set cursorline        " Highlight cursor line underneath the cursor horizontally.
+" set cursorcolumn      " Highlight cursor line underneath the cursor vertically.
+
+set shiftwidth=4 " Set shift width to 4 spaces.
+set tabstop=4    " Set tab width to 4 columns.
+set expandtab    " Use space characters instead of tabs.
+set nobackup     " Do not save backup files.
+set scrolloff=10 " Do not let cursor scroll below or above N number of lines when scrolling.
+set nowrap       " Do not wrap lines. Allow long lines to extend as far as the line goes.
+
+set incsearch    " While searching though a file incrementally highlight matching characters as you type.
+set ignorecase   " Ignore capital letters during search.
+set smartcase    " Override the ignorecase option if searching for capital letters.
+                 " This will allow you to search specifically for capital letters.
+                 "
+set showcmd      " Show partial command you type in the last line of the screen.
+set showmode     " Show the mode you are on the last line.
+set showmatch    " Show matching words during a search.
+
+set hlsearch     " Use highlighting when doing a search.
+set history=1000 " Set the commands to save in history default number is 20.
+
+set number
+
+
+set wildmenu " Enable auto completion menu after pressing TAB.
+set wildmode=list:longest " Make wildmenu behave like similar to Bash completion.
+
+" There are certain files that we would never want to edit with Vim.
+" Wildmenu will ignore files with these extensions.
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+
+
+" Javascript
+"autocmd FileType javascript set formatprg=prettier\ --stdin
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+"autocmd BufWritePre *.js normal
+"autocmd BufWritePre *.js,*.jsx,*.ts*.css,*.less,*.scss,*.json normal
+let g:prettier#autoformat = 1
+let g:prettier#exec_cmd_async = 1
+
+
+" Ale fixes
+"\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
+\   'typescript': ['prettier', 'tslint'],
+\   'vue': ['eslint'],
+\   'scss': ['prettier'],
+\   'html': ['prettier'],
+\   'reason': ['refmt'],
+\}
+
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all'
+"let g:ale_fix_on_save = 1
+let g:ale_completion_autoimport = 1
+
+let g:ale_linters = { 'rust': ['analyzer']}
+
+nnoremap ]r :ALENextWrap<CR>        " move to the next ALE warning / error
+nnoremap [r :ALEPreviousWrap<CR>    " move to the previous ALE warning / error
+
+" Load all plugins now
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+" silent! helptags ALL
+
+"inoremap {<CR> {<CR><BS>}<Esc>ko
+"inoremap [<CR> [<CR><BS>]<Esc>ko
+"inoremap (<CR> (<CR><BS>)<Esc>ko
+inoremap {<CR> {<CR>}<Esc>ko
+inoremap [<CR> [<CR>]<Esc>ko
+inoremap (<CR> (<CR>)<Esc>ko

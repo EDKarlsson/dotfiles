@@ -7,4 +7,4 @@ source ./zsh/zshenv
 
 # installs
 . "$DOTFILES/install/install-zsh.sh"
-
+. "$DOTFILES/install/install-vim.sh"

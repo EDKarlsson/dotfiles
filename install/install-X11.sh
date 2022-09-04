@@ -6,4 +6,5 @@ mkdir -p "$XDG_CONFIG_HOME/X11"
 
 ln -sf "$X11_FILES/xinitrc" "$XINITRC"
 ln -sf "$X11_FILES/xresources" "$XDG_CONFIG_HOME/X11/xresources"
-ln -sf "$X11_FILES/xserverrc" "$HOME/.xserverrc"
+# TODO: Not sure if xserverrc is actually needed
+ln -sf "$X11_FILES/xserverrc" "$XDG_CONFIG_HOME/X11/xserverrc"

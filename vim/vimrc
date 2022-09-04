@@ -28,6 +28,7 @@ set hlsearch     " Use highlighting when doing a search.
 set history=1000 " Set the commands to save in history default number is 20.
 
 set number
+set relativenumber
 
 
 set wildmenu " Enable auto completion menu after pressing TAB.

@@ -17,5 +17,5 @@ This work had inspirations from other repositories that I really vibed with.
 
 ### Random notes
 There are somethings in here that are not perfect. Like the tmux-dev-env is csh specific
-and I can't remember why I did had to do it in csh. I think tmux and zsh just were not 
+and I can't remember why I did it it in csh. I think tmux and zsh just were not 
 playing nicely together or I was trying to learn more about csh scripting.

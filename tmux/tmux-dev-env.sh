@@ -16,8 +16,6 @@ if ( "$session_name" == "" ) then
     set session_name = "dev"
 endif
 
-
-
 set CUR_DIR="$PWD"
 #echo "Current Directory: $CUR_DIR"
 

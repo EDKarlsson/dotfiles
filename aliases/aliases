@@ -1,0 +1,49 @@
+#!/bin/bash
+#!/usr/bin/env bash
+
+# system
+alias shutdown='sudo shutdown now'
+alias restart='sudo reboot'
+alias suspend='sudo pm-suspend'
+
+# Use $XINITRC variable for startx
+[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+
+# Dir Stack
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index}"; unset index
+
+# moving
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+
+# Safety first
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -vI'
+
+# Colorize
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ls='ls -h --color=auto --group-directories-first'
+alias diff='diff --color=auto'
+alias ip='ip -color=auto'
+
+# ls
+alias l='ls -l'
+alias la='ls -al'
+alias ll='ls -laF'
+alias lls='ls -laFtr'
+
+# Git 
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gst='git status'
+
+# tmux
+alias tmuxk='tmux kill-session -t'
+alias tmuxa='tmux attach -t'
+alias tmuxl='tmux list-sessions'

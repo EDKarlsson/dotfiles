@@ -1,5 +1,4 @@
 #!/bin/bash
-
 PLUG_ALE="ale https://github.com/dense-analysis/ale"
 PLUG_NERDTREE="NERDTree https://github.com/preservim/nerdtree"
 PLUG_RUST="rust.vim https://github.com/rust-lang/rust.vim"
@@ -18,8 +17,7 @@ PLUGINS=(
     "${PLUG_PRETTIER}"
 ) 
 
-# Create vim directories
-echo `cp vimrc ~/.vimrc`
+ln -sf "$DOTFILES/vim/vimrc" "$HOME/.vimrc"
 echo `mkdir -p ~/.vim ~/.vim/autoload ~/.vim/backup ~/.vim/colors  ~/.vim/pack  ~/.vim/plugged`
 
 PLUGIN_FOLDER=~/.vim/pack

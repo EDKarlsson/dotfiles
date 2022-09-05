@@ -34,7 +34,7 @@ alias ip='ip -color=auto'
 
 # ls
 alias l='ls -l'
-alias la='ls -al'
+alias la='ls -a'
 alias ll='ls -laF'
 alias lls='ls -laFtr'
 

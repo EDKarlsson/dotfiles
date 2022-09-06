@@ -1,7 +1,9 @@
+#include "xresources.d/nord"
+#include "xresources.d/urxvt"
+
 Xft.dpi: 130
 Xft.antialias: 1
 Xft.hinting: 1
 Xft.rgba: rgb
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
-URxvt.font: xftMesloLGS NF:size=11

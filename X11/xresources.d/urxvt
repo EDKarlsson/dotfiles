@@ -1,0 +1,71 @@
+#include "nord"
+
+URxvt*termName: rxvt-unicode
+! Perl Extension
+! URxvt*perl-ext-common: tabbedex,resize
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard
+
+URxvt.font: xft:MesloLGS NF:style=Regular:size=11
+
+! Clickable URLs
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt.matcher.rend.0: Uline Bold fg5
+
+URxvt*borderLess: false
+URxvt*externalBorder: 0
+URxvt*internalBorder: 4
+
+URxvt*scrollBar: false
+
+URxvt*cursorColor: #ffffff
+
+! Useful for transparency
+URxvt*depth: 32
+!   Equivalent to [85]#2E3440
+URxvt.background: [85]nord0
+
+! URxvt*hold: false
+URxvt*saveLines: 5000
+
+! Scroll
+
+! To consider:
+! https://github.com/muennich/urxvt-perls/blob/master/keyboard-select
+
+! URxvt.keysym.C-Down: resize-font:smaller
+! URxvt.keysym.C-Up: resize-font:bigger
+! URxvt.keysym.C-equal: resize-font:reset
+! URxvt.keysym.C-question: resize-font:show
+URxvt*letterSpace: -1
+
+! Tabs
+! URxvt.keysym.Control-Shift-N: perl:tabbedex:new_tab
+! URxvt.keysym.Control-Shift-K: perl:tabbedex:next_tab
+! URxvt.keysym.Control-Shift-J: perl:tabbedex:prev_tab
+! URxvt.keysym.Control-Shift-X: perl:tabbedex:kill_tab
+
+! URxvt.keysym.Control-Shift-R: perl:tabbedex:rename_tab
+! URxvt.keysym.Control-Shift-H: perl:tabbedex:move_tab_left
+! URxvt.keysym.Control-Shift-L: perl:tabbedex:move_tab_right
+
+! Disable bell
+! URxvt.tabbedex.bell-timeout: 0
+
+! Hide activity indicators
+! URxvt.tabbedex.tabbar-timeouts: 0:  :10:  
+
+! Design for tabs
+! URxvt*tabbedex.title: false
+! URxvt*tabbedex.title-fg: 110
+! URxvt*tabbedex.tabbar-fg: 15
+! URxvt*tabbedex.tabbar-bg: 236
+! URxvt*tabbedex.tab-fg: bold 167
+! URxvt*tabbedex.tab-bg: 236
+! URxvt*tabbedex.transparent:true
+! URxvt*tabbedex.new-button: false
+
+! Copy / Paste
+URxvt.clipboard.autocopy: true
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste

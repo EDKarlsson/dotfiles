@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-export TERM=xterm-256color
-
 # Mimic linux console bindings
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line

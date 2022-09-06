@@ -2,6 +2,7 @@
 
 userresources="$XDG_CONFIG_HOME/X11/xresources"
 usermodmap="$XDG_CONFIG_HOME/X11/xmodmap"
+xresourcesd="$XDG_CONFIG_HOME/X11/xresources.d"
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
@@ -16,12 +17,21 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-    xrdb -merge "$userresources"
+    xrdb -merge -I"$xresourcesd" "$userresources"
 fi
 
 if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
+
+# Extra configurations
+# This should merge in configurations for things such as nord and urxvt
+# if [ -d "$xresourcesd" ]; then
+#     for f in "${xresourcesd}"/*; do
+#         xrdb -merge "$f"
+#     done
+#     unset f
+# fi
 
 # start some nice programs
 

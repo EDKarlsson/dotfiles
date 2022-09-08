@@ -9,6 +9,43 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# special
+set_from_resource $foreground foreground #d8dee9
+set_from_resource $background background #2e3440
+set_from_resource $cursorColor cursorColor #d8dee9
+
+# black
+set_from_resource $black1 color0 #3b4252
+set_from_resource $black2 color8 #4c566a
+
+# red
+set_from_resource $red1 color1 #bf616a
+set_from_resource $red2 color9 #bf616a
+
+# green
+set_from_resource $green1 color2 #a3be8c
+set_from_resource $green2 color10 #a3be8c
+
+# yellow
+set_from_resource $yellow1 color3 #ebcb8b
+set_from_resource $yellow2 color11 #ebcb8b
+
+# blue
+set_from_resource $blue1 color4 #81a1c1
+set_from_resource $blue2 color12 #81a1c1
+
+# magenta
+set_from_resource $cyan1 color5 #b48ead
+set_from_resource $cyan2 color13 #b48ead
+
+# cyan
+set_from_resource $cyan1 color6 #88c0d0
+set_from_resource $cyan2 color14 #8fbcbb
+
+# white
+set_from_resource $white1 color7 #e5e9f0
+set_from_resource $white2 color15 #eceff4
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -35,7 +72,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 exec_always --no-startup-id $XDG_CONFIG_HOME/polybar/launch.sh
-exec_always --no-startup-id $HOME/.Xkeymap && xkbcomp ~/.Xkeymap $DISPLAY
+# exec_always --no-startup-id $HOME/.Xkeymap && xkbcomp ~/.Xkeymap $DISPLAY
 exec_always --no-startup-id ~/.fehbg
 
 # Use pactl to adjust volume in PulseAudio.
@@ -55,8 +92,8 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-#bindsym $mod+Return exec /usr/bin/terminator
-bindsym $mod+Return exec /usr/bin/urxvt
+bindsym $mod+Return exec /usr/bin/terminator
+#bindsym $mod+Return exec /usr/bin/urxvt
 ##bindsym $mod+Return exec /usr/bin/konsole
 
 # kill focused window

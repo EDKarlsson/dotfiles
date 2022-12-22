@@ -47,3 +47,7 @@ alias gst='git status'
 alias tmuxk='tmux kill-session -t'
 alias tmuxa='tmux attach -t'
 alias tmuxl='tmux list-sessions'
+
+# Kubernetes
+alias k=kubectl
+alias mkb=minikube

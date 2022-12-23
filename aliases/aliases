@@ -10,8 +10,8 @@ alias suspend='sudo pm-suspend'
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 
 # Dir Stack
-alias d='dirs -v'
-for index ({1..9}) alias "$index"="cd +${index}"; unset index
+#alias d='dirs -v'
+#for index ({1..9}) alias "$index"="cd +${index}"; unset index
 
 # moving
 alias ..='cd ..'
@@ -40,8 +40,14 @@ alias lls='ls -laFtr'
 
 # Git 
 alias gc='git commit'
+alias ga='git add'
+alias gp='git push'
+alias gpo='git push origin'
+alias gpa='git pull --all'
 alias gcm='git commit -m'
 alias gst='git status'
+alias glo='git log --pretty="oneline"'
+alias glol='git log --graph --oneline --decorate'
 
 # tmux
 alias tmuxk='tmux kill-session -t'

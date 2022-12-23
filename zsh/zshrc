@@ -17,6 +17,13 @@ setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
 setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
 setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
 
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+_comp_options+=(globdots) # with hidden files
+
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -68,6 +75,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 export PATH=${HOME}/.config/local/share/JetBrains/Toolbox/scripts:$PATH
+
 
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

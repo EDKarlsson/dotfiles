@@ -6,10 +6,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$XDG_CONFIG_HOME/local/share"
 export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
 
-# editor
-export EDITOR="vim"
-export VISUAL="vim"
-
 # X11
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 
@@ -34,3 +30,12 @@ export MACHINE_STORAGE_PATH="$XDG_DATA_HOME/docker-machine"
 
 # Javascript, Node, NPM
 export NVM_DIR="$XDG_DATA_HOME/nvm"
+
+# VIM / NVIM
+export VIMCONFIG=~/.config/nvim
+export VIMDATA=~/.local/share/nvim
+
+# editor
+export EDITOR="vim"
+export VISUAL="vim"
+

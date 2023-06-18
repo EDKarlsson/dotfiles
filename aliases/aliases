@@ -57,3 +57,5 @@ alias tmuxl='tmux list-sessions'
 # Kubernetes
 alias k=kubectl
 alias mkb=minikube
+
+alias go-steamapps='cd /home/dank/.config/local/share/Steam/steamapps/common'

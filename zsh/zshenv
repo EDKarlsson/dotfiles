@@ -39,3 +39,5 @@ export VIMDATA=~/.local/share/nvim
 export EDITOR="vim"
 export VISUAL="vim"
 
+# Python
+export PYTHONPATH="${HOME}/git/renpy/renpy"

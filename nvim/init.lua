@@ -1,0 +1,5 @@
+require("config.lazy")
+-- require("config.mason")
+-- require("config.neo-tree")
+-- require("config.vim")
+-- require("config.telescope")
